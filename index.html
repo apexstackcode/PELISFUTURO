@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
 </head>
 <body>
    
@@ -21,15 +20,15 @@
         <nav class="nav-desktop">
             <a href="#inicio">Inicio</a>
             <a href="#Historia">Historia</a>
-            <a href="#Destacadas">Destacadas</a>
             <a href="#Peliculas">Películas</a>
             <a href="#Trailer">Trailers</a>
+            <a href="#Destacadas">Destacadas</a>
         </nav>
 
         <div class="nav-actions">
             <div class="search-bar d-pc-only">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="Buscar...">
+                <input type="text" id="inputBuscar" placeholder="Buscar películas o series...">
             </div>
             
             <button class="menu-toggle" onclick="toggleMenu()">
@@ -49,21 +48,19 @@
         <div class="side-menu-body">
             <a href="#inicio" onclick="toggleMenu()">Inicio</a>
             <a href="#Historia" onclick="toggleMenu()">Historia</a>
-            <a href="#Destacadas" onclick="toggleMenu()">Destacadas</a>
             <a href="#Peliculas" onclick="toggleMenu()">Películas</a>
             <a href="#Trailer" onclick="toggleMenu()">Trailers</a>
-            
+            <a href="#Destacadas" onclick="toggleMenu()">Destacadas</a>
+            <a href="#Favoritos" onclick="toggleMenu()">❤️ Favoritos</a>
             <hr class="divisor">
-            
-            
         </div>
     </nav>
 </header>
 
-  <section class="hero">
-<video autoplay loop playsinline id="videoHero" class="hero-video" muted>
-    <source src="HERO.VIDEO.mp4" type="video/mp4">
-</video>
+<section class="hero" id="inicio">
+    <video autoplay loop playsinline id="videoHero" class="hero-video" muted>
+        <source src="HERO.VIDEO.mp4" type="video/mp4">
+    </video>
     <button id="soundBtn" class="sound-btn">
         <i class="fas fa-volume-mute"></i>
     </button>
@@ -73,19 +70,17 @@
         <p>Películas ilimitadas. Sin límites. Sin excusas.</p>
 
         <div class="hero-buttons">
-            <a href="#catalogo" class="btn-primary">
+            <a href="#Peliculas" class="btn-primary">
                 <i class="fas fa-play"></i> Ver catálogo
             </a>
-
-            <a href="#" class="btn-secondary">
+            <a href="#Historia" class="btn-secondary">
                 <i class="fas fa-info-circle"></i> Más información
             </a>
         </div>
     </div>
-
 </section>
 
-  <section class="Historia" id="Historia">
+<section class="Historia" id="Historia">
     <div class="container-presentacion">
         <h2>Historia</h2>
 
@@ -99,382 +94,105 @@
             </div>
         </div>
     </div>
-  </section>
+</section>
 
-  <section class="peliculas" id="Peliculas">
-     <div class="container-peliculas">
+<section class="peliculas" id="Peliculas">
+    <div class="container-peliculas">
         <div class="text-peliculas">
-            <h2>Nuestras peliculas</h2>
-            <p>Aqui estan las peliculas disponibles</p>
+            <h2>Nuestras Películas y Series</h2>
+            <p>Busca en tiempo real o explora por categoría</p>
         </div>
-          <div class="filtros">
-   <button class="filter-btn active" data-filter="all">Todas</button>
-   <button class="filter-btn" data-filter="Accion">Acción</button>
-   <button class="filter-btn" data-filter="comedia">Comedia</button>
-   <button class="filter-btn" data-filter="terror">Terror</button>
-</div>
-         <div class="grid-peliculas">
-            <div class="card" data-category="Accion">
-             <img src="img/rapido y furioso.jpg" alt="Poster de la pelicula Rapido y Furioso">
-                <h3>Rapido y Furioso</h3>
-                <p>Carreras . Fantasias . 2h 23min . ⭐ 9.4</p>
-                <div class="btn-peliculas">
-                    <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-            <div class="card" data-category="Accion">
-                <img src="img/piratas del caribe.webp" alt="Poster de la pelicula Piratas del caribe">
-                <h3>Piratas del Caribe</h3>
-                <p>Aventura . Fantasia . 2h 23m . ⭐ 8.1</p>
-                <div class="btn-peliculas">
-                     <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-            <div class="card" data-category="Accion">
-                <img src="img/john wick.jpg" alt="Poster de la pelicula John Wick">
-                <h3>John Wick</h3>
-                <p>Accion .Crimen . 1h 41min . ⭐ 7.4</p>
-                <div class="btn-peliculas">
-                    <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-            <div class="card" data-category="Accion">
-                <img src="img/mad.jpg" alt="Poster de la pelicula Mad max: Fury Road">
-                <h3>Mad max: Fury Road</h3>
-                <p>Accion .Crimen . 2 00min . ⭐ 7.4</p>
-                <div class="btn-peliculas">
-                   <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-            <div class="card" data-category="Accion">
-                <img src="img/Avenger Engame.jpg" alt="Poster de la pelicula Avenger Engame">
-                <h3>Avenger Engame</h3>
-                <p>Accion . Destruccion. ⭐ 10</p>
-                <div class="btn-peliculas">
-                   <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-           
-
-            <div class="card" data-category="comedia">
-                   <img src="img/Superbad.jpg"alt="Poster de la pelicula Superbad">
-                   <h3>Superbad</h3>
-                   <p>Comedia 1hr 53min . ⭐ 7.6</p>
-                   <div class="btn-peliculas">
-                    <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                   </div>
-            </div>
-
-            <div class="card" data-category="comedia">
-                   <img src="img/The Hangover.jpg" alt="Poster de la pelicula The Hangover">
-                   <h3>The Hangover</h3>
-                   <p>Comedia . 1hr 40min . ⭐ 7.7</p>
-                   <div class="btn-peliculas">
-                    <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                   </div>
-            </div>
-
-            <div class="card" data-category="comedia">
-                   <img src="img/White Chicks.jpg" alt="Poster de la pelicula White Chicks">
-                   <h3>White Chicks</h3>
-                   <p>Comedia . Crimen . 1hr 49min . ⭐ 5.8</p>
-                   <div class="btn-peliculas">
-                     <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                   </div>
-            </div>
-
-            <div class="card" data-category="comedia">
-                   <img src="img/Home Alone.jpg" alt="Poster de la pelicula Home Alone">
-                   <h3>Home Alone</h3>
-                   <p>Comedia . Familiar . 1hr 43min . ⭐ 7.7</p>
-                   <div class="btn-peliculas">
-                    <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                   </div>
-            </div>
-
-            <div class="card" data-category="comedia">
-                   <img src="img/Jumanju.jpg" alt="Poster de la pelicula Jumanji">
-                   <h3>Jumanji</h3>
-                   <p>Comedia . Aventura . 1hr 40min . ⭐ 7.7</p>
-                   <div class="btn-peliculas">
-                     <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                   </div>
-            </div>
-
-            
-
-            <div class="card" data-category="terror">
-               <img src="img/El conjuro 2.jpg" alt="Poster de la pelicula El conjuro 2">
-               <h3>El conjuro 2</h3>
-               <p>Terror .  Misterio .1hr 52min . ⭐ 7.5</p>
-               <div class="btn-peliculas">
-                   <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-               </div>
-            </div>
-
-            <div class="card" data-category="terror">
-               <img src="img/IT.png" alt="Poster de la pelicula IT">
-               <h3>IT</h3>
-               <p>Terror .  Suspenso . 2hr 15min . ⭐ 7.3</p>
-               <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-               </div>
-            </div>
-
-            <div class="card" data-category="terror">
-               <img src="img/Insidious.jpg" alt="Poster de la pelicula Insidious">
-               <h3>Insidious</h3>
-               <p>Terror . Sobrenatural . 1hr 30min . ⭐ 6.8</p>
-               <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-               </div>
-            </div>
-
-            <div class="card" data-category="terror">
-               <img src="img/A quiet Place.png" alt="Poster de la pelicula A quiet Place">
-               <h3>A quiet Place</h3>
-               <p>Terror . Ciencia Ficcion .1hr 40min . ⭐ 7.5</p>
-               <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-               </div>
-            </div>
-
-            <div class="card" data-category="terror">
-               <img src="img/The Nun.jpg" alt="Poster de la pelicula The nun">
-               <h3>The Nun</h3>
-               <p>Terror . Misterio . 1hr 36min . ⭐ 5.3</p>
-               <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-               </div>
-            </div>
-         </div>
-     </div>
-  </section>
-
-  <section class="sect-menu" id="RANKING">
-    <div class="container-menu">
-        <div class="text-menu">
-            <h2>RANKING</h2>
-            <p>Aqui estan las peliculas mas vista de la semana</p>
+        
+        <div class="filtros">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="Action">Acción</button>
+            <button class="filter-btn" data-filter="Comedy">Comedia</button>
+            <button class="filter-btn" data-filter="Horror">Terror</button>
+            <button class="filter-btn" data-filter="Drama">Drama</button>
         </div>
 
-        <div class="grid-menu">
-            <div class="card">
-                <img src="img/The Godfather.jpg" alt="Poster de la pelicula El Padrino">
-                <h3>El Padrino</h3>
-                <p>Una épica historia sobre el crimen organizado y la lealtad familiar.</p>
-                <div class="btn-peliculas">
-                <button class="btn-menu">Pedir ya</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/The Dark Knight.jpg" alt="Poster de la pelicula Batman: El Caballero de la Noche">
-                <h3>Batman: El Caballero de la Noche</h3>
-                <p>Batman enfrenta al Joker en una batalla por el alma de Gotham.</p>
-                <div class="btn-peliculas">
-                 <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/Pulp Fictio.webp" alt="Poster de la pelicula Pulp Fiction">
-                <h3>Pulp Fiction</h3>
-                <p>Historias cruzadas de criminales en Los Ángeles con un estilo único.</p>
-                <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/Fight Club.jpg" alt="Poster de la pelicula El Club de la Pelea">
-                <h3>El Club de la Pelea</h3>
-                <p>Un oficinista insomne y un vendedor de jabón crean un club clandestino.</p>
-                <div class="btn-peliculas">
-                 <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/The Shawshank Redemption.jpg" alt="Poster de la pelicula Sueño de Fuga">
-                <h3>Sueño de Fuga</h3>
-                <p>>La historia de esperanza y amistad de dos hombres en una prisión.</p>
-                <div class="btn-peliculas">
-                 <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/El Señor de los Anillos.avif" alt="Poster de la pelicula El Señor de los Anillos">
-                <h3>El Señor de los Anillos</h3>
-                <p>La batalla final por la Tierra Media y la destrucción del Anillo Único.</p>
-                <div class="btn-peliculas">
-                 <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/Buenos Muchachos.jpg" alt="Poster de la pelicula Buenos Muchachos">
-                <h3>Buenos Muchachos</h3>
-                <p>La vida de un joven que escala posiciones dentro de la mafia italiana.</p>
-                <div class="btn-peliculas">
-                <button class="btn-menu">Pedir ya</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/Se7en.jpg" alt="Poster de la pelicula Se7en">
-                <h3>Se7en</h3>
-                <p>Dos detectives persiguen a un asesino basado en los pecados capitales.</p>
-                <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="img/El Silencio de los Inocentes.jpg" alt="Poster de la pelicula El Silencio de los Inocentes">
-                <h3>El Silencio de los Inocentes</h3>
-                <p>na agente del FBI busca ayuda de un caníbal para atrapar a un asesino.</p>
-                <div class="btn-peliculas">
-                 <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-                </div>
-            </div>
-        </div>
+       
+        <div class="grid-peliculas" id="moviesGrid"></div>
     </div>
-  </section>
+</section>
 
- <section class="trailer" id="Trailer">
-    <h2>Trailer</h2>
-    <p>Proximamente las peliculas que extaran disponibles</p>
+<section class="trailer" id="Trailer">
+    <h2>Trailers</h2>
+    <p>Próximamente las películas que estarán disponibles</p>
 
     <div class="slider">
         <div class="slide-track">
-
-            
-           
             <img src="https://i.pinimg.com/736x/e7/4c/0c/e74c0c77eb858391ac7e8675b3d40961.jpg" alt="el libro de la vida2">
             <img src="https://i.pinimg.com/736x/36/d1/2d/36d12db0b5f5dbc8cfa574d86a2fdd89.jpg" alt="las rubias">
-            
-
-             
             <img src="https://img.asmedia.epimg.net/resizer/v2/F3BTE5SWMZGUHPTSXYMIPH2K3Q.jpg?auth=74b7c057aa4754d18e079abd81535c518228b771e16acc3e8f664407f2800d0b&width=1472&height=1104&smart=true" alt="card4">
             <img src="https://i.pinimg.com/736x/e4/24/bf/e424bfb60cb21c32f3e19a533d6a495e.jpg" alt="moana3">
-            <img src="https://m.media-amazon.com/images/I/91Nr62aG2aL._AC_UF1000,1000_QL80_.jpg" alt="">
+            <img src="https://m.media-amazon.com/images/I/91Nr62aG2aL._AC_UF1000,1000_QL80_.jpg" alt="poster">
             <img src="https://play-lh.googleusercontent.com/LxqKKdHe7goj6v1Plh5aYl4qN-CaXmOhtsaaFx-aZLBpjd4Ds6tnpPWFN3073bBUARY" alt="chiquito pero peligroso2">
             <img src="https://w0.peakpx.com/wallpaper/744/256/HD-wallpaper-ice-age-diego-ice-age-manny-ice-age.jpg" alt="la era de hielo6">
             <img src="https://i.pinimg.com/1200x/a1/92/7a/a1927af56a9bdfd7e44a95479aa97300.jpg" alt="kunfu panda5">
-           
-
         </div>
     </div>
 </section>
 
-  <section class="destacadas" id="Destacadas">
-     <div class="container-destacada">
+<section class="destacadas" id="Destacadas">
+    <div class="container-destacada">
         <div class="text-destacada">
-            <h2>Peliculas Destacadas</h2>
-            <p>una seleccion de las peliculas mas populares y recomendadas del momento</p>
+            <h2>Películas Destacadas</h2>
+            <p>Una selección de las películas más populares y recomendadas</p>
         </div>
 
-        <div class="grid-destacada">
-            <div class="card">
-                <img src="img/The Shawshank Redemption.jpg" alt="Poster de la pelicula The Shawshank Redemption">
-               <h3> The Shawshank Redemption</h3>
-               <p>Un banquero inocente encuentra esperanza y amistad mientras cumple condena en prisión.</p>
-                 <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-               </div>
-            </div>
+    
+        <div class="grid-destacada" id="destacadasGrid"></div>
+    </div>
+</section>
 
-             <div class="card">
-                <img src="img/The Godfather.jpg" alt="Poster de la pelicula The Godfather">
-                <h3>The Godfather</h3>
-                <p>La historia del ascenso de Michael Corleone dentro de una poderosa familia mafiosa.</p>
-                 <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-               </div>
-            </div>
 
-             <div class="card">
-                <img src="img/The Dark Knight.jpg" alt="Poster de la pelicula The Dark Knight">
-                <h3>The Dark Knight</h3>
-                <p>Batman enfrenta al Joker en una lucha intensa por el alma de Gotham.</p>
-                 <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-               </div>
-            </div>
+<section class="peliculas favoritos" id="Favoritos">
 
-             <div class="card">
-                <img src="img/Forrest Gump.jpg" alt="Poster de la pelicula Forrest Gump">
-                <h3> Forrest Gump</h3>
-                <p>Un hombre bondadoso vive momentos clave de la historia estadounidense.</p>
-                 <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-               </div>
-            </div>
+    <div class="container-peliculas">
 
-             <div class="card">
-                <img src="img/Titanic.jpg" alt="Poster de la pelicula  Titanic">
-                <h3> Titanic</h3>
-                <p>Un romance inolvidable surge durante el trágico viaje del Titanic</p>
-                 <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-               </div>
-            </div>
+        <div class="text-peliculas">
+            <h2>Mis Favoritos ❤️</h2>
+            <p>Las películas y series que has guardado</p>
+        </div>
 
-             <div class="card">
-                <img src="img/Inception.jpg" alt="Poster de la pelicula Inception">
-                <h3> Inception</h3>
-                <p>n ladrón invade sueños para implantar una idea en la mente de su objetivo.</p>
-                 <div class="btn-peliculas">
-                  <button> <i class="bi bi-file-play-fill">PLAY</i></button>
-               </div>
+        <div class="grid-peliculas" id="favoritosGrid"></div>
+
+    </div>
+
+</section>
+
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h2>FuturoPelis</h2>
+            <p>Tu plataforma para descubrir las mejores películas.</p>
+        </div>
+
+        <div class="footer-links">
+            <h3>Enlaces</h3>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#Peliculas">Películas</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-social">
+            <h3>Síguenos</h3>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
             </div>
         </div>
-     </div>
-
-     <div class="btn-container">
-        <a href="peliculas.html" class="btn-ver-mas">
-               Ver Catalogo Completo
-        </a>
-     </div>
-  </section>
-
-   <footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-brand">
-      <h2>FuturoPelis</h2>
-      <p>Tu plataforma para descubrir las mejores películas.</p>
     </div>
 
-    <div class="footer-links">
-      <h3>Enlaces</h3>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="peliculas.html">Películas</a></li>
-       
-        
-      </ul>
+    <div class="footer-bottom">
+        <p>© 2026 FuturoPelis. Todos los derechos reservados.</p>
     </div>
-
-    <div class="footer-social">
-      <h3>Síguenos</h3>
-      <div class="social-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2026 FuturoPelis. Todos los derechos reservados.</p>
-  </div>
 </footer>
 
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bundle.min.js"></script>
- <script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bundle.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
